@@ -37,10 +37,7 @@ export const handleGenerate = async (options: { url: string; theme: string; maxI
     console.log(`Figma reference image saved to ${figmaImagePath}`);
 
     // 2. Generate initial code
-    let files = await generator.generate(figmaNode);
-
-    // 3. Start local environment
-    await envService.start();
+    let files = await generator.generate(figmaNode, options.theme);
 
     for (let i = 0; i < maxIterations; i++) {
       console.log(`\n--- Iteration ${i + 1} ---`);
@@ -57,7 +54,7 @@ export const handleGenerate = async (options: { url: string; theme: string; maxI
       // 5. Take screenshot
       const screenshotPath = path.join(reportsPath, `iteration-${i + 1}.png`);
       // Assuming the generated component is on the front page for now
-      await envService.takeScreenshot('http://localhost:8080', screenshotPath);
+      await envService.takeScreenshot('http://localhost/', screenshotPath);
 
       // 6. Compare images
       const diffPath = path.join(reportsPath, `iteration-${i + 1}-diff.png`);
@@ -81,8 +78,6 @@ export const handleGenerate = async (options: { url: string; theme: string; maxI
   } catch (error) {
     console.error('An error occurred during the generation process:', error);
   } finally {
-    // 9. Stop local environment
-    await envService.stop();
     console.log('Generation process finished.');
   }
 };
