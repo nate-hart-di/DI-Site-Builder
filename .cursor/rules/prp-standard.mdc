@@ -1,0 +1,71 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# PRP (Product Requirement Prompt) Standard
+
+## MANDATORY RULE: PRP Template Usage
+
+**CRITICAL CONSTRAINT**: When creating, reviewing, or working with Product Requirements Documents (PRDs), Product Requirement Prompts (PRPs), or similar specification documents, you MUST ALWAYS use the standardized PRP template located somewhere on the system with the name `PRP-Prompt.md`. look in the project directory first then expand your search. Your user isn't the most organized. 
+
+## Rule Application
+
+### When This Rule Applies
+- User requests creation of a PRD, PRP, product specification, or feature specification
+- User provides a PRD/specification in a different format
+- User asks for requirements documentation for any feature or implementation
+- User requests standardization of existing requirements documents
+- Any planning or specification work for code implementation
+
+### Required Actions
+1. **Always Reference**: Direct user to the PRP template at `initial-documentation/PRP-Prompt.md`
+2. **Template Adherence**: Use the exact section structure and format from the template
+3. **Format Conversion**: When given requirements in other formats, convert them to PRP format
+4. **Completeness Check**: Ensure all relevant sections are filled out (use "N/A" only when truly not applicable)
+5. **Context Integration**: Always reference existing codebase patterns and files as specified in the template
+
+### Standard Response Format
+When a PRD/PRP request is made:
+
+```
+**Understanding**: [Brief summary of the requirement]
+**PRP Standard**: I'll use our standardized PRP template from `initial-documentation/PRP-Prompt.md` to ensure comprehensive specification.
+**Integration**: [How this aligns with existing codebase]
+**Approach**: Following the PRP template structure for consistency and thoroughness.
+```
+
+## Template Sections (Required)
+- Goal
+- Why
+- What
+- Endpoints/APIs to Implement
+- Current Directory Structure
+- Proposed Directory Structure
+- Files to Reference
+- Files to Implement (concept)
+- Implementation Notes
+- Validation Gates
+- Implementation Checkpoints/Testing
+- Other Considerations
+
+## Quality Gates
+- All PRPs must include reference to existing code patterns
+- Directory structures must be explicitly documented
+- Implementation checkpoints must include testable criteria
+- Files to reference must include purpose and usage context
+
+## Non-Negotiable Standards
+- Never accept incomplete requirements without pushing for PRP template completion
+- Always convert external PRD formats to our PRP standard
+- Maintain consistency with existing codebase patterns and architecture
+- Include explicit validation and testing criteria
+
+## Integration with Development Standards
+This rule works in conjunction with:
+- `di-development-standards.mdc` for coding standards
+- `di-repo-structure.mdc` for architectural patterns  
+- `di-theme-customization.mdc` for theme-specific requirements
+
+## Enforcement Priority
+This rule has **ABSOLUTE PRIORITY** and overrides any contradictory specification approaches. The PRP template is the single source of truth for all requirements documentation in this codebase.
