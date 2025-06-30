@@ -3,6 +3,7 @@ import { Command } from 'commander';
 import { handleGenerate } from './generate';
 import { handleConfig } from './config';
 import { handleDoctor } from './doctor';
+import { handleEnvStart, handleEnvStop } from './env';
 
 const program = new Command();
 
@@ -29,6 +30,16 @@ program
   .command('doctor')
   .description('Run an environment health check.')
   .action(handleDoctor);
+
+program
+  .command('env:start')
+  .description('Start the local development environment.')
+  .action(handleEnvStart);
+
+program
+  .command('env:stop')
+  .description('Stop the local development environment.')
+  .action(handleEnvStop);
 
 // Alias 'disb' to 'di-site-builder'
 if (process.argv[1].endsWith('disb')) {
