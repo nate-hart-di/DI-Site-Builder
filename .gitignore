@@ -31,3 +31,6 @@ yarn-error.log*
 
 # Misc project-specific
 **/.claude/settings.local.json
+
+# Local symlink to DI Websites Platform (not checked in)
+di-websites-platform/
